@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     // public variables
     public float speed = 12f;
     public float gravity = -19.62f;
@@ -15,6 +17,19 @@ public class PlayerMovement : MonoBehaviour
     // private variables
     private Vector3 velocity;
     private CharacterController controller;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Debug.Log("Instance already exists, destroying object");
+            Destroy(this);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

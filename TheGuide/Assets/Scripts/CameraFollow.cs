@@ -12,12 +12,6 @@ public class CameraFollow : MonoBehaviour
     // private variables
     private Vector3 velocity = Vector3.zero;
 
-    // Start is called before the first frame update
-    void Start(){}
-
-    // Update is called once per frame
-    void Update(){}
-
     private void LateUpdate()
     {
         Vector3 _targetPosition = target.TransformPoint(setPoint);
